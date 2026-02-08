@@ -6,7 +6,7 @@ import (
 	"lesiw.io/prefix"
 )
 
-// nolint:errcheck
+//ignore:errcheck
 func ExampleNewWriter() {
 	w := prefix.NewWriter("> ", os.Stdout)
 	w.Write([]byte("hello\n"))
