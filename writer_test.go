@@ -40,8 +40,10 @@ func TestWriter(t *testing.T) {
 	}}
 	for _, test := range tt {
 		t.Run(fmt.Sprintf("%q", test.writes), func(t *testing.T) {
-			buf := new(bytes.Buffer)
-			w := NewWriter(test.prefix, buf)
+			var (
+				buf = new(bytes.Buffer)
+				w   = NewWriter(test.prefix, buf)
+			)
 			for _, write := range test.writes {
 				_, err := w.Write([]byte(write))
 				if err != nil {
